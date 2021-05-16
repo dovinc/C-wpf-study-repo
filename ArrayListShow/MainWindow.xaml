@@ -1,0 +1,24 @@
+﻿<Window x:Class="ArrayListShow.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ArrayListShow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid Loaded="WindowLoad">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="281*"/>
+            <ColumnDefinition Width="520*"/>
+        </Grid.ColumnDefinitions>
+        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="42,68,0,0" VerticalAlignment="Top" Width="170"/>
+        <Label x:Name="label1" HorizontalAlignment="Left" Margin="256,68,0,0" VerticalAlignment="Top" Height="252" Width="442" Grid.ColumnSpan="2">
+            <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="" />
+        </Label>
+            <Button x:Name="btShow" Content="显示" HorizontalAlignment="Left" Margin="90,353,0,0" VerticalAlignment="Top" Width="78" Height="28" FontSize="14" Click="BtShowClick"/>
+        <Button x:Name="BtSort" Content="排序" HorizontalAlignment="Left" Margin="344,353,0,0" VerticalAlignment="Top" Width="78" Height="28" FontSize="14" Grid.Column="1" Click="BtSortClick"/>
+        <Button x:Name="BtDelete" Content="删除" HorizontalAlignment="Left" Margin="160,353,0,0" VerticalAlignment="Top" Width="78" Height="28" FontSize="14" Grid.Column="1" Click="BtDeleteClick"/>
+        <Button x:Name="BtAdd" Content="添加" HorizontalAlignment="Left" Margin="262,353,0,0" VerticalAlignment="Top" Width="78" Height="28" FontSize="14" Grid.ColumnSpan="2" Click="BtAddClick"/>
+
+    </Grid>
+</Window>
