@@ -1,5 +1,7 @@
-﻿using System;
+﻿using ICSharpCode.AvalonEdit.Highlighting;
+using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,10 +23,12 @@ namespace codeEditor
     /// </summary>
     public partial class MainWindow : Window
     {
+        public string syntaxHighlighting { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             // LoadEditorTextFromFile("D:/test.txt");
+
 
         } 
 
@@ -67,5 +71,17 @@ namespace codeEditor
             }
             MessageBox.Show("文件加载成功！");
         }
+
+
+
+        private void LangType_Changed(object sender, RoutedEventArgs e)
+        {
+            if ((ComboBoxItem)LangType.SelectedItem != null && ((ComboBoxItem)LangType.SelectedItem).Content != null)
+            {
+                MessageBox.Show((LangType.SelectedValue).ToString());
+            }
+        }
+
+       
     }
 }

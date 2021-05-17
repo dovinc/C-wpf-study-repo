@@ -8,15 +8,50 @@
         Title="MainWindow" Height="467" Width="800">
     <Grid>
         <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="File">
+                    <!--菜单项为MenuItem，文字使用属性 Header-->
+                    <MenuItem Name="menuOpen" Header="Open"></MenuItem>
+                    <MenuItem Header="Save"></MenuItem>
+                    <MenuItem Header="Delete"></MenuItem>
+                </MenuItem>
+                <MenuItem Header="Edit"></MenuItem>
+                <MenuItem Header="View"></MenuItem>
+                <MenuItem Header="About"></MenuItem>
+            </Menu>
+            <ToolBar DockPanel.Dock="Top">
+                <!--ToolBar和StatusBar就是一个容器-->
+                <Button Content="Save"></Button>
+                <Button Content="SaveAll"></Button>
+                <Button Content="FileExplorer"></Button>
+                <Button Content="Start"></Button>
+                <Button Content="Test"></Button>
+                <ComboBox Name="LangType" Width="50" SelectionChanged="LangType_Changed">
+                    <ComboBoxItem IsSelected="True" Content="Java" Tag="Java"></ComboBoxItem>
+                    <ComboBoxItem Content="C#" Tag="C#"></ComboBoxItem>
+                    <ComboBoxItem Content="JavaScript" Tag="JavaScript"></ComboBoxItem>
+                    <ComboBoxItem Content="C++" Tag="C++"></ComboBoxItem>
+                </ComboBox>
+            </ToolBar>
+
+            <Grid DockPanel.Dock="Bottom" Height="96">
+                <Button x:Name="Load" Content="L O A D" HorizontalAlignment="Left" Margin="120,25,0,0" VerticalAlignment="Top" FontSize="16" Height="38" Width="102" Click="LoadClick"/>
+                <Button Content="S A V E" HorizontalAlignment="Left" Margin="500,25,0,0" VerticalAlignment="Top" FontSize="16" Height="38" Width="102" Click="SaveClick"/>
+            </Grid>
+            <Grid DockPanel.Dock="Left" Width="30">
+
+            </Grid>
+            <Grid DockPanel.Dock="Right" Width="30">
+
+            </Grid>
             <avalonEdit:TextEditor
-            DockPanel.Dock="Top"
             xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
             Name="editor"
             SyntaxHighlighting="Java"
             FontFamily="Consolas"
             FontSize="10pt" 
             LineNumbersForeground="Black" 
-            ShowLineNumbers="True" Margin="30,33,30,68" Height="254" Width="664">
+            ShowLineNumbers="True" Height="254" >
                 <avalonEdit:TextEditor.Options>
                     <avalonEdit:TextEditorOptions ShowSpaces="True" >
                         <avalonEdit:TextEditorOptions.ColumnRulerPosition>
@@ -25,10 +60,6 @@
                     </avalonEdit:TextEditorOptions>
                 </avalonEdit:TextEditor.Options>
             </avalonEdit:TextEditor>
-            <Grid DockPanel.Dock="Bottom" Height="96">
-                <Button x:Name="Load" Content="L O A D" HorizontalAlignment="Left" Margin="120,25,0,0" VerticalAlignment="Top" FontSize="16" Height="38" Width="102" Click="LoadClick"/>
-                <Button Content="S A V E" HorizontalAlignment="Left" Margin="500,25,0,0" VerticalAlignment="Top" FontSize="16" Height="38" Width="102" Click="SaveClick"/>
-            </Grid>
 
         </DockPanel>
     </Grid>
