@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:codeEditor" xmlns:system="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
         Title="MainWindow" Height="467" Width="800">
+    <Window.Resources>
+        <local:HighlightingDefinitionConverter x:Key="HighlightingDefinitionConverter"/>
+    </Window.Resources>
     <Grid>
         <DockPanel>
             <Menu DockPanel.Dock="Top">
@@ -47,7 +50,7 @@
             <avalonEdit:TextEditor
             xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
             Name="editor"
-            SyntaxHighlighting="Java"
+            SyntaxHighlighting="{Binding syntaxHighlighting, Converter={StaticResource HighlightingDefinitionConverter}}"
             FontFamily="Consolas"
             FontSize="10pt" 
             LineNumbersForeground="Black" 

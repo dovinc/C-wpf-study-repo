@@ -1,4 +1,5 @@
 ﻿using ICSharpCode.AvalonEdit.Highlighting;
+using ICSharpCode.AvalonEdit.Highlighting.Xshd;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -28,6 +29,7 @@ namespace codeEditor
         {
             InitializeComponent();
             // LoadEditorTextFromFile("D:/test.txt");
+            syntaxHighlighting = "Java";
 
 
         } 
@@ -78,7 +80,9 @@ namespace codeEditor
         {
             if ((ComboBoxItem)LangType.SelectedItem != null && ((ComboBoxItem)LangType.SelectedItem).Content != null)
             {
-                MessageBox.Show((LangType.SelectedValue).ToString());
+                syntaxHighlighting = ((ComboBoxItem)LangType.SelectedItem).Content.ToString();
+                editor.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("C#");
+                MessageBox.Show(syntaxHighlighting);
             }
         }
 

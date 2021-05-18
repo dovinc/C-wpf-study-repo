@@ -9,7 +9,6 @@ using System.Windows.Data;
 
 namespace codeEditor
 {
-    // SyntaxHighlighting="{Binding syntaxHighlighting, Converter={StaticResource codeEditor.HighlightingDefinitionConverter}}"
     public class HighlightingDefinitionConverter : IValueConverter
     {
         private static readonly HighlightingDefinitionTypeConverter Converter = new HighlightingDefinitionTypeConverter();
