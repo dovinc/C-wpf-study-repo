@@ -30,6 +30,7 @@ namespace codeEditor
             InitializeComponent();
             // LoadEditorTextFromFile("D:/test.txt");
             syntaxHighlighting = "Java";
+            DataContext = this;
 
 
         } 
@@ -81,7 +82,7 @@ namespace codeEditor
             if ((ComboBoxItem)LangType.SelectedItem != null && ((ComboBoxItem)LangType.SelectedItem).Content != null)
             {
                 syntaxHighlighting = ((ComboBoxItem)LangType.SelectedItem).Content.ToString();
-                editor.SyntaxHighlighting = ICSharpCode.AvalonEdit.Highlighting.HighlightingManager.Instance.GetDefinition("C#");
+                // editor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinition(highlighting);
                 MessageBox.Show(syntaxHighlighting);
             }
         }

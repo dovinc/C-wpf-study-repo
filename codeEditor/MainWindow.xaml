@@ -34,6 +34,10 @@
                     <ComboBoxItem Content="C#" Tag="C#"></ComboBoxItem>
                     <ComboBoxItem Content="JavaScript" Tag="JavaScript"></ComboBoxItem>
                     <ComboBoxItem Content="C++" Tag="C++"></ComboBoxItem>
+                    <ComboBoxItem Content="HTML" Tag="HTML"></ComboBoxItem>
+                    <ComboBoxItem Content="XML" Tag="XML"></ComboBoxItem>
+                    <ComboBoxItem Content="Json" Tag="Json"></ComboBoxItem>
+                    
                 </ComboBox>
             </ToolBar>
 
