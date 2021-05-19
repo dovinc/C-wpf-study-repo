@@ -3,11 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:codeEditor" xmlns:system="clr-namespace:System;assembly=System.Runtime"
+        xmlns:local="clr-namespace:codeEditor"
+        xmlns:TreeView="clr-namespace:TreeView"
+        xmlns:highlight="clr-namespace:HighlightingDefinitionConverter"
+        
+        xmlns:system="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
         Title="MainWindow" Height="467" Width="800">
     <Window.Resources>
-        <local:HighlightingDefinitionConverter x:Key="HighlightingDefinitionConverter"/>
+        <highlight:HighlightingDefinitionConverter x:Key="HighlightingDefinitionConverter"/>
     </Window.Resources>
     <Grid>
         <DockPanel>
@@ -46,8 +50,17 @@
                 <Button Content="S A V E" HorizontalAlignment="Left" Margin="500,25,0,0" VerticalAlignment="Top" FontSize="16" Height="38" Width="102" Click="SaveClick"/>
                 <Button Content="render" HorizontalAlignment="Left" Margin="318,0,0,0" VerticalAlignment="Center" FontSize="16" Height="38" Width="102" Click="RenderClick"/>
             </Grid>
-            <Grid DockPanel.Dock="Left" Width="30">
-
+            <Grid DockPanel.Dock="Left">
+                <TreeView ItemsSource="{Binding Source={x:Static TreeView:TreeViewData.Data}, Path=RootNodes}"
+          HorizontalContentAlignment="Stretch" Background="#FF252526" Width="300" ItemContainerStyle="{StaticResource ModernTreeViewItem}">
+                    <TreeView.ItemTemplate>
+                        <HierarchicalDataTemplate DataType="{x:Type TreeView:TreeViewData+TreeNode}" ItemsSource="{Binding ChildNodes}">
+                            <Grid Height="32">
+                                <TextBlock Text="{Binding Label}" VerticalAlignment="Center" Foreground="#FFE6E6E6" FontSize="13"/>
+                            </Grid>
+                        </HierarchicalDataTemplate>
+                    </TreeView.ItemTemplate>
+                </TreeView>
             </Grid>
             <Grid DockPanel.Dock="Right" Width="30">
 

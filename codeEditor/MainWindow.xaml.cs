@@ -1,9 +1,8 @@
-﻿using codeEditor.utils;
+﻿
 using ICSharpCode.AvalonEdit.Highlighting;
-using ICSharpCode.AvalonEdit.Highlighting.Xshd;
+
 using JinianNet.JNTemplate;
 using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -64,7 +63,7 @@ namespace codeEditor
             var template = Engine.CreateTemplate(editor.Text);
             template.Set("name", "赵东");
             var result = template.Render();
-            ClipboardUtil.CopyText(result);
+            Utils.ClipboardUtil.CopyText(result);
             MessageBox.Show("已成功将渲染后文件 复制到粘贴板 ！");
         }
 
