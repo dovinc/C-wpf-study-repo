@@ -1,5 +1,7 @@
-﻿using ICSharpCode.AvalonEdit.Highlighting;
+﻿using codeEditor.utils;
+using ICSharpCode.AvalonEdit.Highlighting;
 using ICSharpCode.AvalonEdit.Highlighting.Xshd;
+using JinianNet.JNTemplate;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -57,6 +59,15 @@ namespace codeEditor
             LoadEditorTextFromFile("D:/test.txt");
         }
 
+        private void RenderClick(object sender, RoutedEventArgs e)
+        {
+            var template = Engine.CreateTemplate(editor.Text);
+            template.Set("name", "赵东");
+            var result = template.Render();
+            ClipboardUtil.CopyText(result);
+            MessageBox.Show("已成功将渲染后文件 复制到粘贴板 ！");
+        }
+
         private void LoadEditorTextFromFile(String path)
         {
             try
@@ -81,9 +92,9 @@ namespace codeEditor
         {
             if ((ComboBoxItem)LangType.SelectedItem != null && ((ComboBoxItem)LangType.SelectedItem).Content != null)
             {
-                syntaxHighlighting = ((ComboBoxItem)LangType.SelectedItem).Content.ToString();
-                // editor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinition(highlighting);
-                MessageBox.Show(syntaxHighlighting);
+                // syntaxHighlighting = ((ComboBoxItem)LangType.SelectedItem).Content.ToString();
+                editor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinition(syntaxHighlighting);
+                // MessageBox.Show(syntaxHighlighting);
             }
         }
 

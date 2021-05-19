@@ -29,7 +29,7 @@
                 <Button Content="FileExplorer"></Button>
                 <Button Content="Start"></Button>
                 <Button Content="Test"></Button>
-                <ComboBox Name="LangType" Width="50" SelectionChanged="LangType_Changed">
+                <ComboBox Name="LangType" Width="75" SelectionChanged="LangType_Changed">
                     <ComboBoxItem IsSelected="True" Content="Java" Tag="Java"></ComboBoxItem>
                     <ComboBoxItem Content="C#" Tag="C#"></ComboBoxItem>
                     <ComboBoxItem Content="JavaScript" Tag="JavaScript"></ComboBoxItem>
@@ -37,13 +37,14 @@
                     <ComboBoxItem Content="HTML" Tag="HTML"></ComboBoxItem>
                     <ComboBoxItem Content="XML" Tag="XML"></ComboBoxItem>
                     <ComboBoxItem Content="Json" Tag="Json"></ComboBoxItem>
-                    
+
                 </ComboBox>
             </ToolBar>
 
             <Grid DockPanel.Dock="Bottom" Height="96">
                 <Button x:Name="Load" Content="L O A D" HorizontalAlignment="Left" Margin="120,25,0,0" VerticalAlignment="Top" FontSize="16" Height="38" Width="102" Click="LoadClick"/>
                 <Button Content="S A V E" HorizontalAlignment="Left" Margin="500,25,0,0" VerticalAlignment="Top" FontSize="16" Height="38" Width="102" Click="SaveClick"/>
+                <Button Content="render" HorizontalAlignment="Left" Margin="318,0,0,0" VerticalAlignment="Center" FontSize="16" Height="38" Width="102" Click="RenderClick"/>
             </Grid>
             <Grid DockPanel.Dock="Left" Width="30">
 
