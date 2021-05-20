@@ -3,37 +3,24 @@ using ICSharpCode.AvalonEdit.Highlighting;
 
 using JinianNet.JNTemplate;
 using System;
-using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace codeEditor
+namespace Group
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        public string syntaxHighlighting { get; set; }
+        public string SyntaxHighlighting { get; set; }
         public MainWindow()
         {
             InitializeComponent();
             // LoadEditorTextFromFile("D:/test.txt");
-            syntaxHighlighting = "Java";
             DataContext = this;
-
-
+            SyntaxHighlighting = "Java";
         } 
 
         private void SaveClick(object sender, RoutedEventArgs e)
@@ -89,12 +76,12 @@ namespace codeEditor
 
         private void LangType_Changed(object sender, RoutedEventArgs e)
         {
-            if ((ComboBoxItem)LangType.SelectedItem != null && ((ComboBoxItem)LangType.SelectedItem).Content != null)
+            /*if ((ComboBoxItem)LangType.SelectedItem != null && ((ComboBoxItem)LangType.SelectedItem).Content != null)
             {
                 // syntaxHighlighting = ((ComboBoxItem)LangType.SelectedItem).Content.ToString();
-                editor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinition(syntaxHighlighting);
+                editor.SyntaxHighlighting = HighlightingManager.Instance.GetDefinition(SyntaxHighlighting);
                 // MessageBox.Show(syntaxHighlighting);
-            }
+            }*/
         }
 
        

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace TreeView
+namespace Group.TreeView
 {
     public class TreeViewData
     {
@@ -53,15 +53,16 @@ namespace TreeView
 
         public IList<TreeNode> RootNodes { get { return _RootNodes ?? (_RootNodes = new System.Collections.ObjectModel.ObservableCollection<TreeNode>()); } }
 
-        public class TreeNode
-        {
-            public string Label { get; set; }
+        
+    }
+    public class TreeNode
+    {
+        public string Label { get; set; }
 
-            public int Level { get; set; }
+        public int Level { get; set; }
 
-            private System.Collections.ObjectModel.ObservableCollection<TreeNode> _ChildNodes = null;
+        private System.Collections.ObjectModel.ObservableCollection<TreeNode> _ChildNodes = null;
 
-            public IList<TreeNode> ChildNodes { get { return _ChildNodes ?? (_ChildNodes = new System.Collections.ObjectModel.ObservableCollection<TreeNode>()); } }
-        }
+        public IList<TreeNode> ChildNodes { get { return _ChildNodes ?? (_ChildNodes = new System.Collections.ObjectModel.ObservableCollection<TreeNode>()); } }
     }
 }

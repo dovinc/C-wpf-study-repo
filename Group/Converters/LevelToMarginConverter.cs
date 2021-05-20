@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LevelToMarginConverter
+namespace Group.Converters
 {
     public class LevelToMarginConverter : System.Windows.Data.IValueConverter
     {

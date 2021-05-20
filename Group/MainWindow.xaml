@@ -1,17 +1,16 @@
-﻿<Window x:Class="codeEditor.MainWindow"
+﻿<Window x:Class="Group.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:codeEditor"
-        xmlns:TreeView="clr-namespace:TreeView"
-        xmlns:highlight="clr-namespace:HighlightingDefinitionConverter"
-        
+        xmlns:local="clr-namespace:Group"
+        xmlns:treeView="clr-namespace:Group.TreeView"
+        xmlns:converters="clr-namespace:Group.Converters"
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
         Title="MainWindow" Height="467" Width="800">
     <Window.Resources>
-        <highlight:HighlightingDefinitionConverter x:Key="HighlightingDefinitionConverter"/>
+        <converters:HighlightingDefinitionConverter x:Key="HighlightingDefinitionConverter"/>
     </Window.Resources>
     <Grid>
         <DockPanel>
@@ -51,10 +50,10 @@
                 <Button Content="render" HorizontalAlignment="Left" Margin="318,0,0,0" VerticalAlignment="Center" FontSize="16" Height="38" Width="102" Click="RenderClick"/>
             </Grid>
             <Grid DockPanel.Dock="Left">
-                <TreeView ItemsSource="{Binding Source={x:Static TreeView:TreeViewData.Data}, Path=RootNodes}"
+                <TreeView ItemsSource="{Binding Source={x:Static treeView:TreeViewData.Data}, Path=RootNodes}"
           HorizontalContentAlignment="Stretch" Background="#FF252526" Width="300" ItemContainerStyle="{StaticResource ModernTreeViewItem}">
                     <TreeView.ItemTemplate>
-                        <HierarchicalDataTemplate DataType="{x:Type TreeView:TreeViewData+TreeNode}" ItemsSource="{Binding ChildNodes}">
+                        <HierarchicalDataTemplate DataType="{x:Type treeView:TreeNode}" ItemsSource="{Binding ChildNodes}">
                             <Grid Height="32">
                                 <TextBlock Text="{Binding Label}" VerticalAlignment="Center" Foreground="#FFE6E6E6" FontSize="13"/>
                             </Grid>
@@ -68,7 +67,7 @@
             <avalonEdit:TextEditor
             xmlns:avalonEdit="http://icsharpcode.net/sharpdevelop/avalonedit"
             Name="editor"
-            SyntaxHighlighting="{Binding syntaxHighlighting, Converter={StaticResource HighlightingDefinitionConverter}}"
+            SyntaxHighlighting="{Binding SyntaxHighlighting, Converter={StaticResource HighlightingDefinitionConverter}}"
             FontFamily="Consolas"
             FontSize="10pt" 
             LineNumbersForeground="Black" 

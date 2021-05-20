@@ -1,11 +1,11 @@
 ﻿<Application x:Class="codeEditor.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:codeEditor"
-             xmlns:level1="clr-namespace:LevelToMarginConverter"
+             xmlns:local="clr-namespace:Group"
+             xmlns:converters="clr-namespace:Group.Converters"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <level1:LevelToMarginConverter x:Key="LevelToMarginConverter"/>
+        <converters:LevelToMarginConverter x:Key="LevelToMarginConverter"/>
         <Style x:Key="ExpandCollapseToggleStyle" TargetType="ToggleButton">
             <Setter Property="Focusable" Value="False"/>
             <Setter Property="Template">

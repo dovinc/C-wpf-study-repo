@@ -3,7 +3,7 @@ using System;
 using System.Globalization;
 using System.Windows.Data;
 
-namespace HighlightingDefinitionConverter
+namespace Group.Converters
 {
     public class HighlightingDefinitionConverter : IValueConverter
     {
