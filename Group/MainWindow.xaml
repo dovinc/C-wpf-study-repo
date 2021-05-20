@@ -6,9 +6,10 @@
         xmlns:local="clr-namespace:Group"
         xmlns:treeView="clr-namespace:Group.TreeView"
         xmlns:converters="clr-namespace:Group.Converters"
+        xmlns:vm="clr-namespace:Group.ViewModel"
         xmlns:system="clr-namespace:System;assembly=System.Runtime"
         mc:Ignorable="d"
-        Title="MainWindow" Height="467" Width="800">
+        Title="MainWindow" Height="467" Width="800" Loaded="Window_Loaded">
     <Window.Resources>
         <converters:HighlightingDefinitionConverter x:Key="HighlightingDefinitionConverter"/>
     </Window.Resources>
@@ -48,6 +49,8 @@
                 <Button x:Name="Load" Content="L O A D" HorizontalAlignment="Left" Margin="120,25,0,0" VerticalAlignment="Top" FontSize="16" Height="38" Width="102" Click="LoadClick"/>
                 <Button Content="S A V E" HorizontalAlignment="Left" Margin="500,25,0,0" VerticalAlignment="Top" FontSize="16" Height="38" Width="102" Click="SaveClick"/>
                 <Button Content="render" HorizontalAlignment="Left" Margin="318,0,0,0" VerticalAlignment="Center" FontSize="16" Height="38" Width="102" Click="RenderClick"/>
+                <TextBox x:Name="TextBox_FindNextNode" HorizontalAlignment="Left" Height="23" Margin="623,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" LostFocus="TextBox_FindNextNode_LostFocus"/>
+                <Button x:Name="Button_FindNextNode" Content="查找下一个" HorizontalAlignment="Left" Margin="646,58,0,0" VerticalAlignment="Top" Width="74" Click="Button_FindNextNode_Click"/>
             </Grid>
             <Grid DockPanel.Dock="Left">
                 <TreeView ItemsSource="{Binding Source={x:Static treeView:TreeViewData.Data}, Path=RootNodes}"
@@ -61,7 +64,27 @@
                     </TreeView.ItemTemplate>
                 </TreeView>
             </Grid>
-            <Grid DockPanel.Dock="Right" Width="30">
+            <Grid DockPanel.Dock="Right" Width="150">
+                <TreeView Name="TreeView_NodeList">
+                    <TreeView.ItemContainerStyle>
+                        <Style TargetType="{x:Type TreeViewItem}">
+                            <EventSetter Event="TreeViewItem.PreviewMouseRightButtonDown" Handler="TreeViewItem_PreviewMouseRightButtonDown"/>
+                        </Style>
+                    </TreeView.ItemContainerStyle>
+                    <TreeView.ContextMenu>
+                        <ContextMenu x:Name="ContextMenu_EditNode">
+                            <MenuItem Header="新增节点" Name="MenuItem_AddNode" Click="MenuItem_AddNode_Click"/>
+                            <MenuItem Header="删除节点" Name="MenuItem_DeleteNode" Click="MenuItem_DeleteNode_Click"/>
+                        </ContextMenu>
+                    </TreeView.ContextMenu>
+                    <TreeView.Resources>
+                        <HierarchicalDataTemplate  DataType="{x:Type vm:Node}" ItemsSource="{Binding Nodes,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}">
+                            <StackPanel Orientation="Horizontal" Margin="0,2,0,2">
+                                <TextBlock Text="{Binding NodeName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" ToolTip="{Binding NodeName,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                            </StackPanel>
+                        </HierarchicalDataTemplate>
+                    </TreeView.Resources>
+                </TreeView>
 
             </Grid>
             <avalonEdit:TextEditor
